@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "F:\\Learn\\.Net\\PluralSight - ASP.NET Core Web API Fundamentals\\Created by me\\CityInfo\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\Learn\\.Net\\PluralSight - ASP.NET Core Web API Fundamentals\\Created by me\\CityInfo\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7DEE95CD-1DC6-46D3-8AB4-A87584A7FC81}|CityInfo.API\\CityInfo.API.csproj|f:\\learn\\.net\\pluralsight - asp.net core web api fundamentals\\created by me\\cityinfo\\cityinfo.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7DEE95CD-1DC6-46D3-8AB4-A87584A7FC81}|CityInfo.API\\CityInfo.API.csproj|solutionrelative:cityinfo.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -31,19 +35,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": ".gitignore",
+              "DocumentMoniker": "F:\\Learn\\.Net\\PluralSight - ASP.NET Core Web API Fundamentals\\Created by me\\CityInfo\\.gitignore",
+              "RelativeDocumentMoniker": ".gitignore",
+              "ToolTip": "F:\\Learn\\.Net\\PluralSight - ASP.NET Core Web API Fundamentals\\Created by me\\CityInfo\\.gitignore",
+              "RelativeToolTip": ".gitignore",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-06-21T14:58:40.8Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "F:\\Learn\\.Net\\PluralSight - ASP.NET Core Web API Fundamentals\\Created by me\\CityInfo\\CityInfo.API\\Program.cs",
               "RelativeDocumentMoniker": "CityInfo.API\\Program.cs",
               "ToolTip": "F:\\Learn\\.Net\\PluralSight - ASP.NET Core Web API Fundamentals\\Created by me\\CityInfo\\CityInfo.API\\Program.cs",
               "RelativeToolTip": "CityInfo.API\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAaAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-21T07:49:06.988Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "appsettings.json",
               "DocumentMoniker": "F:\\Learn\\.Net\\PluralSight - ASP.NET Core Web API Fundamentals\\Created by me\\CityInfo\\CityInfo.API\\appsettings.json",
               "RelativeDocumentMoniker": "CityInfo.API\\appsettings.json",
@@ -55,7 +72,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "launchSettings.json",
               "DocumentMoniker": "F:\\Learn\\.Net\\PluralSight - ASP.NET Core Web API Fundamentals\\Created by me\\CityInfo\\CityInfo.API\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "CityInfo.API\\Properties\\launchSettings.json",
@@ -67,7 +84,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "CityInfo.API.csproj",
               "DocumentMoniker": "F:\\Learn\\.Net\\PluralSight - ASP.NET Core Web API Fundamentals\\Created by me\\CityInfo\\CityInfo.API\\CityInfo.API.csproj",
               "RelativeDocumentMoniker": "CityInfo.API\\CityInfo.API.csproj",
