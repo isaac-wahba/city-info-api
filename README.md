@@ -1,1 +1,1 @@
-About the project:
+Practice .Net Core 8 basics Web Api
