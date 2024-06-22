@@ -46,6 +46,13 @@ namespace CityInfo.API.Controllers
         [HttpPost]
         public ActionResult<PointOfInterestDto> CreatePointOfInterest(int cityId, PointOfInterestSaveDto pointOfInterestSaveDto)
         {
+
+            // The commented logic is implemented implecitely in the ApiController attribute
+            //if(!ModelState.IsValid)
+            //{
+            //    return BadRequest(ModelState);
+            //}
+
             var city = CitiesDataStore.Current.Cities.FirstOrDefault(c => c.Id == cityId);
             if(city == null) return NotFound();
 
