@@ -7,12 +7,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers( options =>
+builder.Services.AddControllers(options =>
 {
-    
+
     // config vs content reresenation 
     options.ReturnHttpNotAcceptable = true;
-}).AddNewtonsoftJson();
+}).AddNewtonsoftJson()
+.AddXmlDataContractSerializerFormatters();
 
 
 builder.Services.AddValidatorsFromAssemblyContaining<PointOfInterestSaveValidator>();
