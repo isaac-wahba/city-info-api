@@ -1,9 +1,10 @@
-﻿using CityInfo.API.Models;
+﻿using CityInfo.API.Interfaces;
+using CityInfo.API.Models;
 using FluentValidation;
 
 namespace CityInfo.API.validators
 {
-    public class PointOfInterestSaveValidator : AbstractValidator<PointOfInterestSaveDto>
+    public class PointOfInterestSaveValidator : AbstractValidator<PointOfInterestBase>
     {
         public PointOfInterestSaveValidator()
         {

@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using CityInfo.API.Interfaces;
+using System.ComponentModel.DataAnnotations;
 
 namespace CityInfo.API.Models
 {
-    public class PointOfInterestSaveDto
+    public class PointOfInterestSaveDto : PointOfInterestBase
     {
         //[Required(ErrorMessage = "You should provide a name value.")]
         //[MaxLength(50)]

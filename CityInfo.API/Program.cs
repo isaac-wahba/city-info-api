@@ -12,7 +12,7 @@ builder.Services.AddControllers( options =>
     
     // config vs content reresenation 
     options.ReturnHttpNotAcceptable = true;
-});
+}).AddNewtonsoftJson();
 
 
 builder.Services.AddValidatorsFromAssemblyContaining<PointOfInterestSaveValidator>();

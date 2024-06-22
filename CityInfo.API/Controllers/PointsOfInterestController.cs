@@ -1,9 +1,12 @@
-﻿using CityInfo.API.Models;
+﻿using CityInfo.API.Interfaces;
+using CityInfo.API.Models;
 using CityInfo.API.validators;
 using FluentValidation;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Cryptography.X509Certificates;
 
 
 namespace CityInfo.API.Controllers
@@ -12,7 +15,7 @@ namespace CityInfo.API.Controllers
     [ApiController]
     public class PointsOfInterestController : ControllerBase
     {
-        private readonly IValidator<PointOfInterestSaveDto> _pointOfInterestSaveValidator;
+        private readonly IValidator<PointOfInterestBase> _pointOfInterestSaveValidator;
 
         public PointsOfInterestController(PointOfInterestSaveValidator pointOfInterestSaveValidator)
         {
@@ -92,5 +95,78 @@ namespace CityInfo.API.Controllers
             }, pointOfInterestToSave);
              
         }
+
+        [HttpPut("{pointOfInterestId}")] // put for full update - patch for partial update
+        public ActionResult UpdatePointOfInterest(int cityId, int pointOfInterestId, PointOfInterestUpdateDto pointOfInterestUpdateDto)
+        {
+        
+            var city = CitiesDataStore.Current.Cities.FirstOrDefault(c => c.Id == cityId);
+
+            if (city == null) return NotFound();
+
+            ValidationResult results = _pointOfInterestSaveValidator.Validate(pointOfInterestUpdateDto);
+
+            if (!results.IsValid)
+            {
+                // map over errors and return validation messages only
+                return BadRequest(results.Errors.Select(e => e.ErrorMessage));
+            }
+
+            var pointOfInterestFromStore = city.PointsOfInterest.FirstOrDefault(p => p.Id == pointOfInterestId);
+
+            if (pointOfInterestFromStore == null) return NotFound();
+
+            pointOfInterestFromStore.Name = pointOfInterestUpdateDto.Name;
+            pointOfInterestFromStore.Description = pointOfInterestUpdateDto.Description;
+
+            return NoContent();
+        }
+
+
+        [HttpPatch("{pointOfInterestId}")]
+        public ActionResult PartiallyUpdateDto(int cityId, int pointOfInterestId,
+                                               JsonPatchDocument<PointOfInterestUpdateDto> patchDocument)
+        {
+            var city = CitiesDataStore.Current.Cities.FirstOrDefault(c => c.Id == cityId);
+
+            if (city == null) return NotFound();
+
+            var pointOfInterestFromStore = city.PointsOfInterest.FirstOrDefault(p => p.Id == pointOfInterestId);
+
+            if (pointOfInterestFromStore == null)
+            {
+                return NotFound();
+            }
+
+            var pointOfInterestToPatch = new PointOfInterestUpdateDto
+            {
+                Name = pointOfInterestFromStore.Name,
+                Description = pointOfInterestFromStore.Description ?? ""
+            };
+
+            patchDocument.ApplyTo(pointOfInterestToPatch, ModelState);
+
+            ValidationResult result = _pointOfInterestSaveValidator.Validate(pointOfInterestToPatch);
+
+            if (!result.IsValid)
+            {
+                return BadRequest(result.Errors.Select(e => e.ErrorMessage));
+            }
+
+
+            if (!ModelState.IsValid) // might not be necessary!
+            {
+                return BadRequest(ModelState);
+            }
+
+            pointOfInterestFromStore.Name = pointOfInterestToPatch.Name;
+            pointOfInterestFromStore.Description = pointOfInterestToPatch.Description;
+
+            return NoContent();
+
+        }
+
+
+
     }
 }
