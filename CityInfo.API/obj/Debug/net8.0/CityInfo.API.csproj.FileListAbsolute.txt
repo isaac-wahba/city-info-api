@@ -30,3 +30,4 @@ F:\Learn\.Net\PluralSight - ASP.NET Core Web API Fundamentals\Created by me\City
 F:\Learn\.Net\PluralSight - ASP.NET Core Web API Fundamentals\Created by me\CityInfo\CityInfo.API\obj\Debug\net8.0\CityInfo.API.pdb
 F:\Learn\.Net\PluralSight - ASP.NET Core Web API Fundamentals\Created by me\CityInfo\CityInfo.API\obj\Debug\net8.0\CityInfo.API.genruntimeconfig.cache
 F:\Learn\.Net\PluralSight - ASP.NET Core Web API Fundamentals\Created by me\CityInfo\CityInfo.API\obj\Debug\net8.0\ref\CityInfo.API.dll
+F:\Learn\.Net\PluralSight - ASP.NET Core Web API Fundamentals\Created by me\CityInfo\CityInfo.API\obj\Debug\net8.0\CityInfo.API.sourcelink.json
