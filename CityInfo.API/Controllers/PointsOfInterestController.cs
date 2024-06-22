@@ -1,6 +1,10 @@
 ﻿using CityInfo.API.Models;
+using CityInfo.API.validators;
+using FluentValidation;
+using FluentValidation.Results;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+
 
 namespace CityInfo.API.Controllers
 {
@@ -8,6 +12,13 @@ namespace CityInfo.API.Controllers
     [ApiController]
     public class PointsOfInterestController : ControllerBase
     {
+        private readonly IValidator<PointOfInterestSaveDto> _pointOfInterestSaveValidator;
+
+        public PointsOfInterestController(PointOfInterestSaveValidator pointOfInterestSaveValidator)
+        {
+            _pointOfInterestSaveValidator = pointOfInterestSaveValidator;
+        }
+
         [HttpGet]
         public ActionResult<IEnumerable<PointOfInterestDto>> GetPointsOfInterest(int cityId)
         {
@@ -52,6 +63,13 @@ namespace CityInfo.API.Controllers
             //{
             //    return BadRequest(ModelState);
             //}
+            ValidationResult results = _pointOfInterestSaveValidator.Validate(pointOfInterestSaveDto);
+
+            if (!results.IsValid)
+            {
+                // map over errors and return validation messages only
+                return BadRequest(results.Errors.Select(e => e.ErrorMessage));
+            }
 
             var city = CitiesDataStore.Current.Cities.FirstOrDefault(c => c.Id == cityId);
             if(city == null) return NotFound();
