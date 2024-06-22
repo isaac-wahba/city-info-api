@@ -485,3 +485,8 @@ $RECYCLE.BIN/
 
 #added 
 .vs/
+
+
+# Ignore build output directories for all projects
+[Bb]in/
+[Oo]bj/
