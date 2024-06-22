@@ -1,26 +1,22 @@
+using Microsoft.AspNetCore.StaticFiles;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
-
-// add configs for the problem details, like when u get 404 not found
-
-builder.Services.AddProblemDetails(options =>
+builder.Services.AddControllers( options =>
 {
-    options.CustomizeProblemDetails = (ctx) =>
-    {
-        // additionalInfo is a key, and Additional information about the problem. is the value
-        ctx.ProblemDetails.Extensions.Add("additionalInfo", "Additional information about the problem.");
-        // server is a key, and Environment.MachineName is the value
-        ctx.ProblemDetails.Extensions.Add("server", Environment.MachineName);
-    };
-}
     
-    );
+    // config vs content reresenation 
+    options.ReturnHttpNotAcceptable = true;
+}).AddXmlDataContractSerializerFormatters();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// add file extension content type provider built in pkg
+builder.Services.AddSingleton<FileExtensionContentTypeProvider>();
 
 var app = builder.Build();
 
